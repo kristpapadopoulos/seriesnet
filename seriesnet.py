@@ -16,7 +16,13 @@ Initial 1D convolutional code structure based on:
 https://gist.github.com/jkleint/1d878d0401b28b281eb75016ed29f2ee
 
 Author: Krist Papadopoulos
-Date: March 31, 2018
+V0 Date: March 31, 2018
+V1 Data: September 12, 2018
+         - updated Keras merge function to Add for Keras 2.2.2
+        
+         tensorflow==1.10.1
+         Keras==2.2.2
+         numpy==1.14.5
 """
 
 from __future__ import print_function, division
@@ -24,7 +30,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from keras.layers import Conv1D, Input, merge, Activation, Dropout
+from keras.layers import Conv1D, Input, Add, Activation, Dropout
 
 from keras.models import Sequential, Model
 
@@ -58,7 +64,7 @@ def DC_CNN_Block(nb_filter, filter_length, dilation, l2_layer_reg):
                       kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, 
                       seed=42), kernel_regularizer=l2(l2_layer_reg))(layer_out)
                       
-        network_out = merge([residual, network_in], mode='sum')
+        network_out = Add()([residual, network_in])
         
         return network_out, skip_out
     
@@ -79,7 +85,7 @@ def DC_CNN_Model(length):
     l7a, l7b = DC_CNN_Block(32,2,64,0.001)(l6a)
     l7b = Dropout(0.8)(l7b) #dropout used to limit influence of earlier data
 
-    l8 =   merge([l1b, l2b, l3b, l4b, l5b, l6b, l7b], mode='sum')
+    l8 =   Add()([l1b, l2b, l3b, l4b, l5b, l6b, l7b])
     
     l9 =   Activation('relu')(l8)
            
