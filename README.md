@@ -1,4 +1,4 @@
-## Seriesnet 
+## SeriesNet 
 
 ### Time series prediction using dilated causal convolutional neural nets 
 
