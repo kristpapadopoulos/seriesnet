@@ -6,6 +6,8 @@
 
 
  <b> Example of time series predictions with seriesnet</b>
+ - First plot: log + normal noise - prediction for 20 steps in green
+ - Second plot: log + sine - prediction for 20 steps in orange
 
 ![log_noise](series_net_log_noise_20.png)
 ![log_sine](series_net_log_sine_20.png)
