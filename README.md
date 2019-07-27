@@ -7,8 +7,8 @@
 <p align='center'>
   <b> Example of time series predictions with seriesnet</b>
 
-![log_noise](series_net_log_noise_20.png)
-![log_sine](series_net_log_sine_20.png)
+<center>![log_noise](series_net_log_noise_20.png)</center>
+<center>![log_sine](series_net_log_sine_20.png)</center>
 </p>
 
 
