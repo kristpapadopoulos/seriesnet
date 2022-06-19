@@ -120,7 +120,7 @@ class SeriesNet(keras.Model):
         self.block7 = DcCnnBlock(num_filter, filter_length, 64, l2_layer_reg)
         self.dropout = Dropout(dropout)
         self.act = Activation('relu')
-        self.out = Conv1D(1,
+        self.out = Conv1D(1, 
                           1, 
                           activation='linear', 
                           use_bias=False, 
@@ -141,6 +141,6 @@ class SeriesNet(keras.Model):
         l7b = self.dropout(l7b) #dropout used to limit influence of earlier data
         l8 = Add()([l1b, l2b, l3b, l4b, l5b, l6b, l7b])
         l9 = self.act(l8)
-        l21 = self.out(l9)
-        return l21
+        l10 = self.out(l9)
+        return l10
       
