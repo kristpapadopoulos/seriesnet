@@ -106,7 +106,7 @@ class SeriesNet(keras.Model):
         filter_length, 
         l2_layer_reg,
         dropout,
-        name="dc_cnn_model",
+        name="seriesnet_model",
         **kwargs):
         
         super(SeriesNet, self).__init__(name=name, **kwargs)
