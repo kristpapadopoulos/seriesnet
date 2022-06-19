@@ -12,5 +12,9 @@
 ![log_noise](series_net_log_noise_20.png)
 ![log_sine](series_net_log_sine_20.png)
 
+### Requirements
 
-
+- tested with tensorflow 2.6.5
+- install requirements.txt
+- train.py contains data preparation, model training and prediction functions
+- toy example given in train.py to generate predictions and plot results
